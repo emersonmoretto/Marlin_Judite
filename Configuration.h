@@ -10,6 +10,8 @@ TODO
 
 * Diminuir o travel speed, pra tentar evitar os trancos
 
+* Precisa diminuir a velocidade de impressao p/ ABS no Slic3r (50%)
+
 * Aumentar o tempo para desligar os motores
 
 * Ajustar o Pre e Pos Z-Probe
