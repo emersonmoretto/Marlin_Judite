@@ -1167,11 +1167,13 @@ static void retract_z_probe() {
     destination[Z_AXIS] = current_position[Z_AXIS] + 20;
     prepare_move_raw();
 
-    destination[X_AXIS] = -46;
-    destination[Y_AXIS] = 59;
-    destination[Z_AXIS] = 28;
+    //G1 Y-70 X-70 Z2
+    destination[X_AXIS] = -70;
+    destination[Y_AXIS] = -70;
+    destination[Z_AXIS] = 32; // vai subtrair 30 daqui - umas 10 linhas de codgo abaixo
     prepare_move_raw();
 
+   
     // TODO: Move the nozzle down until the Z probe switch is activated.
     //enable_endstops(true);
     //destination[Z_AXIS] = current_position[Z_AXIS] - 30;
@@ -1179,13 +1181,16 @@ static void retract_z_probe() {
 
     // Move the nozzle down further to push the probe into retracted position.
     feedrate = homing_feedrate[Z_AXIS]/10;
-    destination[Z_AXIS] = current_position[Z_AXIS] - 20;
+    destination[Z_AXIS] = current_position[Z_AXIS] - 30;
     prepare_move_raw();
 
+    destination[X_AXIS] = 0; //custom
+    destination[Y_AXIS] = 0; //custom
     feedrate = homing_feedrate[Z_AXIS];
-    destination[Z_AXIS] = current_position[Z_AXIS] + 30;
+    destination[Z_AXIS] = current_position[Z_AXIS] + 40;
     prepare_move_raw();
     st_synchronize();
+    
     #endif //SERVO_ENDSTOPS
 }
 
